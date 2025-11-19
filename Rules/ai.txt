@@ -1,11 +1,13 @@
 # ===================================================
-# AI Services & Google Integration (Quantumult X)
+# AI Services (Strict & Clean)
 # Policy: ai
-# Updated with: alkalimakersuite / clients6 / content-upload
+# Excludes: CN AI, Low-risk Art/Video sites
 # ===================================================
 
-# --- 01. Verification & Auth (Crucial) ---
+# --- 01. Verification & Auth ---
 HOST, challenges.cloudflare.com, ai
+HOST, gateway.ai.cloudflare.com, ai
+HOST, o33249.ingest.sentry.io, ai
 HOST-SUFFIX, openai-api.arkoselabs.com, ai
 HOST-SUFFIX, arkoselabs.com, ai
 HOST-SUFFIX, auth0.com, ai
@@ -14,26 +16,26 @@ HOST-SUFFIX, sentry.io, ai
 HOST-SUFFIX, stripe.com, ai
 HOST-SUFFIX, recaptcha.net, ai
 
-# --- 02. Google AI, Auth & Integration ---
-# Core AI Domains
+# --- 02. Google AI & Auth ---
 HOST-SUFFIX, gemini.google.com, ai
 HOST-SUFFIX, bard.google.com, ai
 HOST-SUFFIX, aistudio.google.com, ai
 HOST-SUFFIX, makersuite.google.com, ai
 HOST-SUFFIX, deepmind.com, ai
 HOST-SUFFIX, deepmind.google, ai
+HOST-SUFFIX, notebooklm.google, ai
 HOST-SUFFIX, notebooklm.google.com, ai
 HOST-SUFFIX, generativeai.google, ai
-# APIs & Backend (Covers alkalimakersuite-pa & waa-pa)
-HOST-SUFFIX, clients6.google.com, ai
-HOST-SUFFIX, client-channel.google.com, ai
-HOST-SUFFIX, apis.google.com, ai
+HOST, ai.google.dev, ai
 HOST-SUFFIX, generativelanguage.googleapis.com, ai
 HOST-SUFFIX, proactivebackend-pa.googleapis.com, ai
 HOST-SUFFIX, geller-pa.googleapis.com, ai
-# File Uploads (GCS Uploads for AI Context)
+HOST-SUFFIX, aisandbox-pa.googleapis.com, ai
+HOST-SUFFIX, robinfrontend-pa.googleapis.com, ai
 HOST-SUFFIX, content-storage-upload.googleapis.com, ai
-# Account Authentication
+HOST, alkalimakersuite-pa.clients6.google.com, ai
+HOST, alkalicore-pa.clients6.google.com, ai
+HOST, waa-pa.clients6.google.com, ai
 HOST-SUFFIX, accounts.google.com, ai
 HOST-SUFFIX, accounts.youtube.com, ai
 HOST-SUFFIX, myaccount.google.com, ai
@@ -41,22 +43,25 @@ HOST-SUFFIX, ogs.google.com, ai
 HOST-SUFFIX, oauth2.googleapis.com, ai
 HOST-SUFFIX, id.google.com, ai
 HOST-SUFFIX, profile.google.com, ai
-# Essential UI Assets (Fonts/Icons - Safe)
+HOST-SUFFIX, clients6.google.com, ai
+HOST-SUFFIX, apis.google.com, ai
 HOST-SUFFIX, gstatic.com, ai
 HOST-SUFFIX, ssl.gstatic.com, ai
-# Helpers
-HOST-SUFFIX, translate.google.com, ai
-HOST-SUFFIX, translate.googleapis.com, ai
-HOST-SUFFIX, lens.google.com, ai
 HOST-SUFFIX, assistant.google.com, ai
 
-# --- 03. OpenAI (ChatGPT) ---
+# --- 03. OpenAI (ChatGPT / Sora) ---
 HOST-SUFFIX, chatgpt.com, ai
 HOST-SUFFIX, openai.com, ai
 HOST-SUFFIX, oaistatic.com, ai
 HOST-SUFFIX, oaiusercontent.com, ai
 HOST-SUFFIX, ai.com, ai
-HOST-SUFFIX, openaiapi-site.azureedge.net, ai
+HOST-SUFFIX, sora.com, ai
+HOST, openaiapi-site.azureedge.net, ai
+HOST, openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net, ai
+HOST, openaicomproductionae4b.blob.core.windows.net, ai
+HOST, production-openaicom-storage.azureedge.net, ai
+HOST, chat.openai.com.cdn.cloudflare.net, ai
+HOST, sora-cdn.oaistatic.com, ai
 HOST-SUFFIX, openaicom.imgix.net, ai
 HOST-SUFFIX, chatgpt.livekit.cloud, ai
 HOST-SUFFIX, host.livekit.cloud, ai
@@ -73,6 +78,7 @@ IP-CIDR, 135.234.64.0/24, ai, no-resolve
 # --- 04. Anthropic (Claude) ---
 HOST-SUFFIX, anthropic.com, ai
 HOST-SUFFIX, claude.ai, ai
+HOST-SUFFIX, claudeusercontent.com, ai
 HOST-SUFFIX, anthropicusercontent.com, ai
 HOST-KEYWORD, claude, ai
 HOST-KEYWORD, anthropic, ai
@@ -82,50 +88,56 @@ IP-CIDR, 65.154.224.0/24, ai, no-resolve
 
 # --- 05. Microsoft & GitHub Copilot ---
 HOST-SUFFIX, copilot.microsoft.com, ai
-HOST-SUFFIX, bing.com, ai
-HOST-SUFFIX, bingapis.com, ai
-HOST-SUFFIX, edgeservices.bing.com, ai
-HOST-SUFFIX, sydney.bing.com, ai
-HOST-SUFFIX, designer.microsoft.com, ai
-HOST-SUFFIX, chat.msn.com, ai
 HOST-SUFFIX, githubcopilot.com, ai
 HOST-SUFFIX, cocopilot.org, ai
 HOST-SUFFIX, copilot-proxy.githubusercontent.com, ai
 HOST-SUFFIX, copilot.githubusercontent.com, ai
+HOST, api.github.com, ai
+HOST-SUFFIX, bing.com, ai
+HOST-SUFFIX, bingapis.com, ai
+HOST-SUFFIX, edgeservices.bing.com, ai
+HOST-SUFFIX, sydney.bing.com, ai
+HOST-SUFFIX, microsoftonline.com, ai
 
-# --- 06. xAI, Perplexity & Others ---
+# --- 06. Developer AI (Windsurf, Cursor) ---
+HOST-SUFFIX, windsurf.com, ai
+HOST-SUFFIX, codeium.com, ai
+HOST-SUFFIX, codeiumdata.com, ai
+HOST-SUFFIX, cursor.sh, ai
+HOST-SUFFIX, cursor.com, ai
+HOST-SUFFIX, zed.dev, ai
+HOST-SUFFIX, augment.com, ai
+HOST-SUFFIX, augmentcode.com, ai
+HOST-SUFFIX, jetbrains.ai, ai
+HOST-SUFFIX, supermaven.com, ai
+
+# --- 07. Emerging & Strict (xAI, Meta) ---
 HOST-SUFFIX, grok.x.ai, ai
 HOST-SUFFIX, x.ai, ai
+HOST-SUFFIX, grok.com, ai
 HOST-SUFFIX, perplexity.ai, ai
 HOST-SUFFIX, pplx.ai, ai
+HOST-SUFFIX, meta.ai, ai
+HOST-SUFFIX, groq.com, ai
+HOST-SUFFIX, openrouter.ai, ai
 HOST-SUFFIX, poe.com, ai
 HOST-SUFFIX, poecdn.net, ai
 HOST-SUFFIX, quora.com, ai
-HOST-SUFFIX, huggingface.co, ai
-HOST-SUFFIX, hf.co, ai
-HOST-SUFFIX, deepseek.com, ai
-HOST-SUFFIX, chat.deepseek.com, ai
-HOST-SUFFIX, cursor.com, ai
-HOST-SUFFIX, cursor.sh, ai
+HOST-SUFFIX, coze.com, ai
 HOST-SUFFIX, notion.ai, ai
-HOST-SUFFIX, suno.ai, ai
-HOST-SUFFIX, udio.com, ai
-HOST-SUFFIX, elevenlabs.io, ai
 
-# --- 07. Generative Art ---
+# --- 08. Midjourney (Strict) ---
 HOST-SUFFIX, midjourney.com, ai
 HOST-SUFFIX, midjourney.io, ai
 HOST-SUFFIX, discord.com, ai
 HOST-SUFFIX, discordapp.com, ai
-HOST-SUFFIX, stability.ai, ai
-HOST-SUFFIX, runwayml.com, ai
-HOST-SUFFIX, civitai.com, ai
-HOST-SUFFIX, clipdrop.co, ai
 
-# --- 08. Apple Intelligence ---
+# --- 09. Apple Intelligence ---
 HOST-SUFFIX, apple-relay.apple.com, ai
 HOST-SUFFIX, apple-relay.fastly-edge.com, ai
 HOST-SUFFIX, apple-relay.cloudflare.com, ai
 HOST-SUFFIX, guzzoni.apple.com, ai
-HOST-SUFFIX, guzzoni.smoot.apple.com, ai
+HOST-SUFFIX, smoot.apple.com, ai
+HOST-SUFFIX, cp4.cloudflare.com, ai
+HOST-SUFFIX, gspe1-ssl.ls.apple.com, ai
 HOST-SUFFIX, mask-api.icloud.com, ai
